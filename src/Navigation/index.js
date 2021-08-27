@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React from 'react'
+import React from 'react';
 import { View, Image, StyleSheet, Text, Platform, TouchableOpacity } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
@@ -14,6 +14,8 @@ import screenSignup from '../Containers/SignupContainer';
 import screenCard from '../Containers/CardContainer';
 import screenNoti from '../Containers/NotiContainer';
 import screenStore from '../Containers/StoreContainer';
+import screenPorfile from '../Containers/ProfileContainer';
+
 
 const IntroNavigator = createStackNavigator(
     {
@@ -29,7 +31,6 @@ const IntroNavigator = createStackNavigator(
         initialRouteName: NAV_TYPES.LOGIN
     }
 )
-
 
 const HomeNavigation = createStackNavigator(
     {
@@ -71,6 +72,16 @@ const StoreNavigation = createStackNavigator(
         },
     }
 );
+const ProfileNavigation = createStackNavigator(
+    {
+        [NAV_TYPES.PROFILE]: {
+            screen: screenPorfile,
+            navigationOptions: {
+                headerShown: false,
+            },
+        },
+    }
+);
 
 const SignupNavigation = createStackNavigator(
     {
@@ -92,44 +103,55 @@ const TabNavigation = createBottomTabNavigator(
             navigationOptions: {
                 tabBarLabel: ({ focused }) => (
                     <View>
-                        <Icon name="home" size={30} color="#900" style={{ textAlign: 'center', color: focused ? 'blue' : 'black' }} />
-                        <Text style={{ textAlign: 'center', color: focused ? 'blue' : 'black' }}>Home</Text>
+                        <Icon name="home" size={20} color="#900" style={{ textAlign: 'center', color: focused ? 'blue' : 'black' }} />
+                        <Text style={{ fontSize: 11, textAlign: 'center', color: focused ? 'blue' : 'black' }}>Home</Text>
                     </View>
                 ),
-            }
-        },
-        [NAV_TYPES.CARD]: {
-            screen: CardNavigation,
-            navigationOptions: {
-                tabBarLabel: ({ focused }) => (
-                    <View>
-                        <Icon name="home" size={30} color="#900" style={{ textAlign: 'center', color: focused ? 'blue' : 'black' }} />
-                        <Text style={{ textAlign: 'center', color: focused ? 'blue' : 'black' }}>Cart</Text>
-                    </View>
-                ),
-            }
-        },
-        [NAV_TYPES.NOTIFICATION]: {
-            screen: NotificationNavigation,
-            navigationOptions: {
-                tabBarLabel: ({ focused }) => (
-                    <View>
-                        <Icon name="home" size={30} color="#900" style={{ textAlign: 'center', color: focused ? 'blue' : 'black' }} />
-                        <Text style={{ textAlign: 'center', color: focused ? 'blue' : 'black' }}>Notification</Text>
-                    </View>
-                ),
-            }
+            },
         },
         [NAV_TYPES.STORE]: {
             screen: StoreNavigation,
             navigationOptions: {
                 tabBarLabel: ({ focused }) => (
                     <View>
-                        <Icon name="home" size={30} color="#900" style={{ textAlign: 'center', color: focused ? 'blue' : 'black' }} />
-                        <Text style={{ textAlign: 'center', color: focused ? 'blue' : 'black' }}>Store</Text>
+                        <Icon name="bank" size={20} color="#900" style={{ textAlign: 'center', color: focused ? 'blue' : 'black' }} />
+                        <Text style={{ fontSize: 11, textAlign: 'center', color: focused ? 'blue' : 'black' }}>Store</Text>
                     </View>
                 ),
-            }
+            },
+        },
+        [NAV_TYPES.NOTIFICATION]: {
+            screen: NotificationNavigation,
+            navigationOptions: {
+                tabBarLabel: ({ focused }) => (
+                    <View>
+                        <Icon name="bell" size={20} color="#900" style={{ textAlign: 'center', color: focused ? 'blue' : 'black' }} />
+                        <Text style={{ fontSize: 11, textAlign: 'center', color: focused ? 'blue' : 'black' }}>Notification</Text>
+                    </View>
+                ),
+            },
+        },
+        [NAV_TYPES.CARD]: {
+            screen: CardNavigation,
+            navigationOptions: {
+                tabBarLabel: ({ focused }) => (
+                    <View>
+                        <Icon name="shopping-cart" size={20} color="#900" style={{ textAlign: 'center', color: focused ? 'blue' : 'black' }} />
+                        <Text style={{ fontSize: 11, textAlign: 'center', color: focused ? 'blue' : 'black' }}>Cart</Text>
+                    </View>
+                ),
+            },
+        },
+        [NAV_TYPES.PROFILE]: {
+            screen: ProfileNavigation,
+            navigationOptions: {
+                tabBarLabel: ({ focused }) => (
+                    <View>
+                        <Icon name="user-circle-o" size={20} color="#900" style={{ textAlign: 'center', color: focused ? 'blue' : 'black' }} />
+                        <Text style={{ fontSize: 11, textAlign: 'center', color: focused ? 'blue' : 'black' }}>Profile</Text>
+                    </View>
+                ),
+            },
         },
     },
     {
@@ -139,9 +161,9 @@ const TabNavigation = createBottomTabNavigator(
             //   activeBackgroundColor:'#f5f5f5',
 
             labelStyle: {
-                fontSize: 20,
+                fontSize: 10,
             },
-            style: { height: Platform.OS === 'ios' ? 60 : 63, paddingBottom: Platform.OS === 'ios' ? 0 : 10 },
+            style: { height: Platform.OS === 'ios' ? 40 : 43, paddingBottom: Platform.OS === 'ios' ? 0 : 0 },
             activeColor: 'blue',
             activeTabStyle: { backgroundColor: 'blue' },
 
@@ -175,15 +197,15 @@ const MainNavigation = createStackNavigator(
         [NAV_TYPES.INTRO]: {
             screen: IntroNavigator,
             navigationOptions: {
-                headerShown: false
-            }
+                headerShown: false,
+            },
         },
         [NAV_TYPES.CORE]: {
             screen: CoreNavigation,
             navigationOptions: {
-                headerShown: false
-            }
-        }
+                headerShown: false,
+            },
+        },
     },
     {
         initialRouteName: NAV_TYPES.INTRO

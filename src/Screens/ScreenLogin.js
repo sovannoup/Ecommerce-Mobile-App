@@ -1,6 +1,8 @@
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
-import { Text, StyleSheet, TouchableOpacity, SafeAreaView, TextInput, View, Image } from 'react-native';
+import {
+    Text, StyleSheet, TouchableOpacity, SafeAreaView, TextInput, View, Image
+} from 'react-native';
 import NavigationService from '../Service/navigationService';
 import { NAV_TYPES } from '../Navigation/navTypes';
 export default class Login extends Component {
@@ -48,7 +50,8 @@ export default class Login extends Component {
                         </TouchableOpacity>
                         <TouchableOpacity
                             style={styles.newAcc}
-                            onPress={() => NavigationService.navigate(NAV_TYPES.SIGNUP)}>
+                            onPress={() => NavigationService.navigate(NAV_TYPES.SIGNUP)}
+                        >
                             <Text style={styles.newAccText}>
                                 ចូលគណនី
                             </Text>

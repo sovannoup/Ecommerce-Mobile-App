@@ -11,4 +11,6 @@ export const NAV_TYPES = {
     CARD: 'CARD',
     NOTIFICATION: 'NOTIFICATION',
     STORE: 'STORE',
+    PROFILE: 'PROFILE',
+    FAV: 'FAV',
 };

@@ -1,8 +1,9 @@
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react'
 import {
-    Text, StyleSheet, TouchableOpacity, View, Image,
+    Text, StyleSheet, TouchableOpacity, View, Image, ScrollView,
 } from 'react-native'
+import Icon from 'react-native-vector-icons/FontAwesome';
 import NavigationService from '../Service/navigationService'
 import { NAV_TYPES } from '../Navigation/navTypes'
 export default class Notification extends Component {
@@ -15,19 +16,27 @@ export default class Notification extends Component {
     }
     render() {
         return (
-            <View style={styles.innerAction}>
-                <Text style={styles.newAccText}>
-                    Notifiation Screen
-                </Text>
-            </View>
+            <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
+                <View style={styles.headerBox}>
+                    <Text style={{ fontSize: 15 }}>សារជូនដំណីង</Text>
+                </View>
+                <View>
+                    <Icon name="bell" size={40} style={{ textAlign: 'center', color: '#FFC34D', marginTop: '50%' }} />
+                    <Text style={{ alignSelf: 'center', marginTop: 10 }}>មិនទាន់មានសារជូនដំណឹងទេ</Text>
+                </View>
+            </ScrollView>
         );
     }
 }
 const styles = StyleSheet.create({
-    innerAction: {
-        color: 'green',
+    container: {
+        flex: 1,
+        backgroundColor: '#f3f3f3',
     },
-    newAccText: {
-        fontSize: 15,
+    headerBox: {
+        height: 50,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#fdfd96',
     },
 })
